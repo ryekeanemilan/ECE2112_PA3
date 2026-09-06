@@ -2,7 +2,7 @@
 Milan, Rye Keane Lorenzo | 2ECE-D
 
 # Problem 1: Positional and Label-Based Slicing
-Tasl:  After loading the dataset, display the shape and the complete list of column names for the cars DataFrame. Next, using positional slicing, create a new DataFrame called `cars_6_to_10 that` contains rows 6 through 10 of the dataset, where the first data row is considered row 1. From this new subset, display only the columns Model, `mpg, cyl, hp, and gear`, strictly in that order.
+Task:  After loading the dataset, display the shape and the complete list of column names for the cars DataFrame. Next, using positional slicing, create a new DataFrame called `cars_6_to_10 that` contains rows 6 through 10 of the dataset, where the first data row is considered row 1. From this new subset, display only the columns Model, `mpg, cyl, hp, and gear`, strictly in that order.
 
 ---
 
