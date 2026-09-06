@@ -63,3 +63,14 @@ print("Shape of selected cars:", selected_cars.shape)
 print("\nSelected Cars Dataset:")
 display(selected_cars)
 ```
+
+---
+
+Read Me File Version History
+
+September 6, 2026 - Uploaded the finished `ipynb` file
+
+September 6, 2026 - Started writing the README file
+
+September 6, 2026 - Finished the repository
+
