@@ -6,20 +6,20 @@ Task:  After loading the dataset, display the shape and the complete list of col
 
 ---
 
-The code first uses the `shape` attribute and columns property to verify the overall dimensions
+The code first uses `cars.shape` to get the total number of rows and columns, which results in 32 and 12. Using `list(cars.columns)` converts the column names of the original CSV file into a list. The `print()` statements clean the console output with a line break to keep everything organized.
 
 ```
 print("Shape of the dataset:", cars.shape)
 print("\nComplete list of columns:", list(cars.columns))
 ```
 
-When taking specific rows, Pandas uses zero-based indexing, so the count always starts at zero. To isolate rows six to 10, the `.iloc` with the range of `[5:10]` will work perfectly in this scenario. 
+When taking specific rows, Pandas uses zero-based indexing, so the count always starts at zero. To isolate rows 6 to 10, the `.iloc` with the range `[5:10]` will work perfectly for this scenario to get the exact five rows needed. 
 
 ```
 cars_6_to_10 = cars.iloc[5:10]
 ```
 
-Now that the right rows are in order, they need to be filtered down to just the requested columns. By using `.loc`, the `:` tells Pandas to keep all the rows in the new subset, while the bracketed list picks out the exact columns in the required order.  
+Now that the right rows are in order, they need to be filtered down to just the requested columns. For this part of the solution, `.loc` will now be used instead of `.iloc` to switch the identification method from index-based to label-based. The empty colon `:` tells the code to keep every row in the new subset, and the bracketed list tells Pandas to keep only those columns in the exact order. To show the output `display()` is called instead of `print()` to render the result as a table rather than plain text. 
 
 ```
 cars_6_to_10 = cars_6_to_10.loc[:,['Model', 'mpg', 'cyl', 'hp', 'gear']]
