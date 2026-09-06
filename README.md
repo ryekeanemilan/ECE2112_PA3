@@ -29,6 +29,24 @@ display(cars_6_to_10)
 # Problem 2: Model Lookup
 Rely strictly on Boolean indexing on the Model column to fulfill two requests without using any hard-coded row numbers to locate the vehicles. First, display the complete row for the Toyota Corolla and store the result in a variable named toyota. Second, for the Pontiac Firebird, display only the Model, mpg, hp, and wt columns, and store this result in a variable named pontiac.
 
+In this problem, a straightforward approach would be to simply enter the exact row numbers for the specific models. In more advanced cases, the straightforward solution becomes risky because the dataset could change at any time without notice. To avoid headaches with those kinds of scenarios, a boolean condition can be used such that the code evaluates the condition: `cars['Model'] == 'Toyota Corolla'`. This serves as a true-or-false filter across the entire `Model` column. Placing this filter inside `.loc` pulls the exact row where the condition is True. Since no columns were specified, it defaults to looking at all of the columns for the Corolla.   
+
+```
+toyota  = cars.loc[cars['Model'] == 'Toyota Corolla']
+```
+
+For the Pontiac Firebird, the code handles both row search and column filtering simultaneously. Inside `.loc`, the first argument finds the correct row similar to how the Corolla was hunted down, and the second argument is a list that specifies exactly which columns to keep. This accomplishes the task in a single line. The `display()` function then outputs both variables as tables.
+
+```
+pontiac = cars.loc[cars['Model'] == 'Pontiac Firebird', ['Model', 'mpg', 'hp', 'wt']]
+
+print("Toyota Corolla Details:")
+display(toyota)
+
+print("\nPontiac Firebird Selected Details:")
+display(pontiac)
+```
+
 # Problem 3: Multi-Model Subsetting
 Create a DataFrame named selected cars containing only the records for three exact models: Datsun 710, Lotus Europa, and Ferrari Dino. For these specific records, retain only the columns `Model, mpg, cyl, hp, and gear`. You must select these rows by their model values rather than their numeric row positions. Once complete, display the selected cars DataFrame along with its shape.
 
