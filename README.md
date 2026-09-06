@@ -21,6 +21,9 @@ Now that the right rows are in order, they need to be filtered down to just the 
 
 ```
 cars_6_to_10 = cars_6_to_10.loc[:,['Model', 'mpg', 'cyl', 'hp', 'gear']]
+
+print("\nRows 6 to 10 (Selected Columns):")
+display(cars_6_to_10)
 ```
 
 # Problem 2: Model Lookup
@@ -28,3 +31,17 @@ Rely strictly on Boolean indexing on the Model column to fulfill two requests wi
 
 # Problem 3: Multi-Model Subsetting
 Create a DataFrame named selected cars containing only the records for three exact models: Datsun 710, Lotus Europa, and Ferrari Dino. For these specific records, retain only the columns `Model, mpg, cyl, hp, and gear`. You must select these rows by their model values rather than their numeric row positions. Once complete, display the selected cars DataFrame along with its shape.
+
+Instead of writing three separate blocks of code for the three different cars, the conditions are combined. By using the OR operator `(|)`, the code looks for the Datsun 710, Lotus Europa, or Ferrari Dino all at once. Each condition must be placed in parentheses so that it runs properly. The combined conditions are then passed to `.loc`, along with the list of required columns, to generate the precise table immediately.
+
+```
+selected_cars = cars.loc[(cars['Model']=='Datsun 710') | (cars['Model']=='Lotus Europa') | (cars['Model']=='Ferrari Dino'), ['Model', 'mpg', 'cyl', 'hp', 'gear']]
+```
+
+Before showing the final table, the code prints `selected_cars.shape` to verify that the output has exactly 3 rows and 5 columns. Once confirmed, `display()` presents the final output.
+
+```
+print("Shape of selected cars:", selected_cars.shape)
+print("\nSelected Cars Dataset:")
+display(selected_cars)
+```
