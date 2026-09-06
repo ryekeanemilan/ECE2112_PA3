@@ -4,6 +4,8 @@ Milan, Rye Keane Lorenzo | 2ECE-D
 # Problem 1: Positional and Label-Based Slicing
 After loading the dataset, display the shape and the complete list of column names for the cars DataFrame. Next, using positional slicing, create a new DataFrame called `cars_6_to_10 that` contains rows 6 through 10 of the dataset, where the first data row is considered row 1. From this new subset, display only the columns Model, `mpg, cyl, hp, and gear`, strictly in that order.
 
+---
+
 The code first uses the `shape` attribute and columns property to verify the overall dimensions
 
 ```
@@ -29,6 +31,8 @@ display(cars_6_to_10)
 # Problem 2: Model Lookup
 Rely strictly on Boolean indexing on the Model column to fulfill two requests without using any hard-coded row numbers to locate the vehicles. First, display the complete row for the Toyota Corolla and store the result in a variable named toyota. Second, for the Pontiac Firebird, display only the Model, mpg, hp, and wt columns, and store this result in a variable named pontiac.
 
+---
+
 In this problem, a straightforward approach would be to simply enter the exact row numbers for the specific models. In more advanced cases, the straightforward solution becomes risky because the dataset could change at any time without notice. To avoid headaches with those kinds of scenarios, a boolean condition can be used such that the code evaluates the condition: `cars['Model'] == 'Toyota Corolla'`. This serves as a true-or-false filter across the entire `Model` column. Placing this filter inside `.loc` pulls the exact row where the condition is True. Since no columns were specified, it defaults to looking at all of the columns for the Corolla.   
 
 ```
@@ -48,6 +52,9 @@ display(pontiac)
 ```
 
 # Problem 3: Multi-Model Subsetting
+
+---
+
 Create a DataFrame named selected cars containing only the records for three exact models: Datsun 710, Lotus Europa, and Ferrari Dino. For these specific records, retain only the columns `Model, mpg, cyl, hp, and gear`. You must select these rows by their model values rather than their numeric row positions. Once complete, display the selected cars DataFrame along with its shape.
 
 Instead of writing three separate blocks of code for the three different cars, the conditions are combined. By using the OR operator `(|)`, the code looks for the Datsun 710, Lotus Europa, or Ferrari Dino all at once. Each condition must be placed in parentheses so that it runs properly. The combined conditions are then passed to `.loc`, along with the list of required columns, to generate the precise table immediately.
